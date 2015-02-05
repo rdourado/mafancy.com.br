@@ -1,0 +1,389 @@
+@import "compass"
+@import "compass/layout"
+
+$cyan: #5dfeff
+
+$speed: .2s
+$ease: ease-out
+
+// Fonts
+
+@import url("http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Roboto:400,700,100")
+
+$icons: "mafancy"
+$roboto: "Roboto", sans-serif
+$display: "Playfair Display", serif
+
+// Icons
+
++font-face($icons, font-files("#{$icons}/#{$icons}.woff", "#{$icons}/#{$icons}.ttf", "#{$icons}/#{$icons}.svg"), "#{$icons}/#{$icons}.eot", normal, normal)
+
+.icon
+	&:before, a:before
+		font-family: $icons !important
+		font-style: normal !important
+		font-weight: normal !important
+		font-variant: normal !important
+		text-transform: none !important
+		line-height: 1
+		speak: none
+		-webkit-font-smoothing: antialiased
+		-moz-osx-font-smoothing: grayscale
+	&.instagram
+		&:before, a:before
+			content: "i"
+	&.twitter
+		&:before, a:before
+			content: "t"
+	&.facebook
+		&:before, a:before
+			content: "f"
+	&.youtube
+		&:before, a:before
+			content: "y"
+	&.rss
+		&:before, a:before
+			content: "r"
+	&.email
+		&:before, a:before
+			content: "e"
+	&.search
+		&:before, a:before
+			content: "s"
+	&.pinterest
+		&:before, a:before
+			content: "p"
+
+// Tags
+
+*
+	margin: 0
+	padding: 0
+	+box-sizing(border-box)
+body
+	font: 18px/1.2 Times, serif
+	min-width: 900px
+img, fieldset
+	border: 0 none
+hr, legend
+	display: none
+ul, ol
+	list-style: none
+img
+	height: auto
+	max-width: 100%
+	outline: none
+	vertical-align: baseline
+a
+	text-decoration: none
+
+// Generic
+
+.cf
+	+pie-clearfix
+
+.wrap
+	margin-left: auto
+	margin-right: auto
+	max-width: 1200px
+
+.media
+	clear: both
+	position: relative
+	padding-bottom: percentage(9/16)
+	padding-top: 25px
+	height: 0
+	+box-shadow(0 0 0 1px rgba($cyan,.5))
+	object, embed, iframe
+		height: 100%
+		left: 0
+		position: absolute
+		top: 0
+		width: 100%
+
+.link
+	border: 1px solid #000
+	color: #000
+	display: inline-block
+	font: 14px/30px $roboto
+	padding: 0 15px 0 5px
+	text-transform: uppercase
+	+single-transition(all, $speed, $ease)
+	&:before
+		content: "+"
+		margin: 0 15px
+	&:hover, &:focus, &:active
+		background: #000
+		color: #fff
+
+// Theme
+
+.head
+	padding: 40px 0 0
+	position: relative
+.logo
+	padding: 71px 0
+	text-align: center
+	a
+		display: inline-block
+	img
+		display: block
+		margin: 0 auto
+.nav-head
+	@extend .cf
+	border-top: 1px solid #e5e5e5
+	border-bottom: 1px solid #e5e5e5
+	.menu-site
+		background: #eee
+		padding: 0 40px
+		top: 0
+		+stretch-x
+		.menu-item
+			float: left
+			font: 12px/40px $roboto
+			text-transform: uppercase
+			a
+				color: rgba(#000,.5)
+				display: block
+				+single-transition(color, $speed, $ease)
+				&:hover, &:focus, &:active
+					color: #000
+			+ .menu-item
+				margin-left: 25px
+	.menu-categories
+		padding: 0 40px
+		.menu-item
+			float: left
+			font: 15px/60px $roboto
+			text-transform: uppercase
+			a
+				color: #000
+				display: block
+				+single-transition(color, $speed, $ease)
+				&:hover, &:focus, &:active
+					color: $cyan
+			+ .menu-item
+				margin-left: 25px
+	.menu-social
+		float: right
+		padding-right: 40px
+		.menu-item
+			float: left
+			line-height: 60px
+			a
+				color: #000
+				display: block
+				+single-transition(color, $speed, $ease)
+				&:hover, &:focus, &:active
+					color: $cyan
+				&:before
+					vertical-align: middle
+			+ .menu-item
+				margin-left: 15px
+.menu-item
+	&:before
+		display: none
+.search-form
+	position: absolute
+	right: 40px
+	top: 6px
+.search-field
+	background: none
+	border: 0 none
+	border-bottom: 1px solid rgba(#000,.5)
+	display: inline-block
+	font: 12px $roboto
+	margin: 0
+	outline: none
+	padding: 5px
+	text-transform: uppercase
+	width: 250px
+.search-submit
+	background: none
+	border: 0 none
+	cursor: pointer
+	display: inline-block
+	font-size: 12px
+	margin: 0
+	padding: 8px 6px 4px
+	vertical-align: bottom
+
+.main
+	padding-bottom: 60px
+
+.tile-list
+	@extend .cf
+	margin: 15px 30px
+.tile,
+.sizer
+	float: left
+	position: relative
+	width: (100% / 4)
+	&:before
+		content: ""
+		display: block
+		padding-top: 100%
+.tile
+	&.w2
+		width: (100% / 2)
+		&:before
+			padding-top: 50%
+	&.h2:before
+		padding-top: 200%
+	&.w2.h2:before
+		padding-top: 100%
+	> a
+		background-position: center center
+		background-repeat: no-repeat
+		+background-size(cover)
+		color: #fff
+		display: block
+		+single-transition(all, $speed, $ease)
+		+stretch(10px, 10px, 10px, 10px)
+		&:before
+			background: rgba($cyan,.8)
+			content: ""
+			display: block
+			opacity: 0
+			visibility: hidden
+			z-index: 1
+			+single-transition(all, $speed, $ease)
+			+stretch
+	&:hover, &:focus
+		a
+			color: #000
+			&:before,
+			~ .tile-share
+				opacity: 1
+				visibility: visible
+.tile-body
+	bottom: 0
+	padding: 10px 16px
+	z-index: 2
+	+stretch-x
+.tile-category
+	font: italic 16px $display
+	text-transform: lowercase
+.tile-title
+	font: 20px/1.2 $roboto
+	text-transform: uppercase
+	.w2.h2 &
+		font-size: 33px
+		padding-right: 40%
+.tile-share
+	opacity: 0
+	right: 28px
+	position: absolute
+	top: 24px
+	visibility: hidden
+	z-index: 3
+	+single-transition(all, $speed, $ease)
+	a
+		color: #000
+		margin-left: 10px
+		vertical-align: middle
+
+.pagination
+	clear: both
+	padding: 30px
+	text-align: center
+
+.foot
+	@extend .cf
+	background: #000
+	clear: both
+.tv
+	border-bottom: 8px solid $cyan
+	padding: 80px 120px 60px
+	.header
+		float: left
+		margin: 0 0 48px 38px
+	.subscribe
+		border-color: $cyan
+		color: $cyan
+		float: right
+		margin: 9px 12px 48px 0
+		&:hover, &:focus, &:active
+			background: $cyan
+			color: #000
+.widgets
+	@extend .cf
+.widget
+	float: left
+	padding: 30px 40px 40px
+	width: (100% / 3)
+	ul
+		font: 100 16px/1.6 $roboto
+	a
+		color: #fff
+		+single-transition(all, $speed, $ease)
+		&:hover, &:focus, &:active
+			color: $cyan
+.header,
+.widget-title
+	color: $cyan
+	font: 700 14px $roboto
+	margin-bottom: 25px
+	text-transform: uppercase
+.related
+	background: $cyan
+	padding: 30px 40px 40px
+	.header
+		color: #000
+	.tile-list
+		margin: -10px -10px 0
+.nav-foot
+	color: #fff
+	float: right
+	padding: 60px 40px 60px 0
+	white-space: nowrap
+	.menu-item a
+		color: #fff
+		+single-transition(color, $speed, $ease)
+		&:hover, &:focus, &:active
+			color: $cyan
+	.menu-categories
+		border-bottom: 1px solid #fff
+		font-size: 0
+		.menu-item
+			display: inline-block
+			font: 14px/46px $roboto
+			text-transform: uppercase
+			+ .menu-item:before
+				content: "."
+				display: inline
+				margin: 0 10px
+	.menu-site
+		float: left
+		font: 100 12px/46px $roboto
+		text-transform: uppercase
+		.menu-item
+			float: left
+			+ .menu-item
+				margin-left: 20px
+	.menu-social
+		float: right
+		line-height: 46px
+		.menu-item
+			float: left
+			a:before
+				vertical-align: middle
+			+ .menu-item
+				margin-left: 15px
+.copyright
+	$h: image-height("logohor.png")
+	$w: image-width("logohor.png")
+	color: rgba(#fff,.4)
+	float: left
+	font: 9px/12px $roboto
+	padding: 60px 0 20px 40px
+	text-transform: uppercase
+	width: $w
+	&:before
+		background: generated-image-url("logohor@2x.png")
+		+background-size($w, $h)
+		content: ""
+		display: block
+		height: $h
+		margin: 0 0 20px -10px
+		width: $w
