@@ -1,0 +1,61 @@
+﻿!!!
+%html{:lang => "en"}
+	%head
+		%meta{:charset => "UTF-8"}/
+		%title Mafancy. by Maria Fernanda Lamego
+		%link{:rel => "stylesheet", :href => "css/screen.css", :media => "screen, projection"}/
+	%body.home
+		= Haml::Engine.new(File.read(File.dirname(__FILE__) + "/_header.haml")).render
+		%main.main{:role => "main"}
+			%article.entry.h-entry
+				%header.entry-head
+					.wrap
+						%h1.p-name Meu guia para o Marrocos
+						%p.p-category
+							- ["Marrocos", "Guia", "Oriente médio", "Wallpaper"].each do |o|
+								%a{:href => "#"} #{o}
+						%time.dt-published{:datetime => ""} 24 Novembro 2014
+				.e-content
+					.wrap
+						%p A principal diferença entre a aventura e a grande aventura é simples: o Marrocos está ao lado da Europa, enquanto o Sudeste Asiático está a 10 horas de voo das principais cidades do Velho Continente.
+						%p No Marrocos, se eu descobrisse que a minha curiosidade por países exóticos não suportava a realidade, eu teria apenas que atravessar o estreito de Gibraltar e me refugiar na familiaríssima Espanha.
+						%p Foi principalmente por este motivo (pela proximidade da Europa) que eu escolhi o Marrocos para o meu début nos países “estranhos”. Pode parecer frescura, mas é o que eu recomendo para todos que querem começar a correr o mundo: faça aos poucos. Vá para países exóticos mais próximos de países não-exóticos, onde você consiga ver o diferente mas também possa recorrer ao conhecido de vez em quando. Onde haja uma língua mais familiar (no caso do Marrocos, o francês) e não apenas letreiros indecifráveis.
+						%p Assim você testa você mesmo, evita grandes traumas e vai se acostumando com essas diferenças, ganhando experiência para ir cada vez mais longe. Se tudo der certo, talvez um dia você também esteja escrevendo um blog sobre destinos exóticos.
+						%h2 Marrocos Básico (mas só para iniciantes)
+						%p Assim você testa você mesmo, evita grandes traumas e vai se acostumando com essas diferenças, ganhando experiência para ir cada vez mais longe. Se tudo der certo, talvez um dia você também esteja escrevendo um blog sobre destinos exóticos.
+				%footer.entry-foot
+					.wrap
+						%p.p-category
+							%strong Tags:
+							- ["Marrocos", "Guia", "Oriente médio", "Wallpaper"].each do |o|
+								%a{:href => "#"} #{o}
+						%p.entry-share
+							%strong Compartilhe esse post:
+							%a.icon.twitter{:href => "#"}<
+								%span 456
+							%a.icon.facebook{:href => "#"}<
+								%span 987
+							%a.icon.pinterest{:href => "#"}<
+								%span 134
+							%a.icon.email{:href => "#"}
+					%section.related
+						.wrap
+							%h3.header Posts relacionados
+							.tile-list
+								- 4.times do |n|
+									.tile
+										%a{:href => "#", :style => "background-image:url(img/thumb-3.jpg)"}
+											.tile-body
+												%p.tile-category Crônica
+												%h2.tile-title Como estou?
+										.tile-share
+											%a.icon.facebook{:href => "#", :target => "_blank"}
+											%a.icon.twitter{:href => "#", :target => "_blank"}
+											%a.icon.pinterest{:href => "#", :target => "_blank"}
+											%a.icon.email{:href => "#", :target => "_blank"}
+				%aside.comments
+					.wrap
+						%h3.header Comentários
+						.comments-list
+							.fb-comments{:data => {:href => "#", :numposts => "5", :colorscheme => "light"}}
+		= Haml::Engine.new(File.read(File.dirname(__FILE__) + "/_footer.haml")).render

@@ -1,0 +1,75 @@
+﻿!!!
+%html{:lang => "en"}
+	%head
+		%meta{:charset => "UTF-8"}/
+		%title Mafancy. by Maria Fernanda Lamego
+		%link{:rel => "stylesheet", :href => "css/screen.css", :media => "screen, projection"}/
+	%body.home
+		= Haml::Engine.new(File.read(File.dirname(__FILE__) + "/_header.haml")).render
+		%main.main{:role => "main"}
+			%article.about
+				.wrap
+					.body
+						%h1.header<
+							About
+							%small.sub Um pouco sobre a Mafancy
+						%p A principal diferença entre a aventura e a grande aventura é simples: o Marrocos está ao lado da Europa, enquanto o Sudeste Asiático está a 10 horas de voo das principais cidades do Velho Continente.
+						%p No Marrocos, se eu descobrisse que a minha curiosidade por países exóticos não suportava a realidade, eu teria apenas que atravessar o estreito de Gibraltar e me refugiar na familiaríssima Espanha.
+					.wallpapers
+						%a.iphone{:href => "#"}<
+							Baixar
+							%br>
+							wallpaper
+							%br>
+							iPhone
+						%a.desktop{:href => ""}<
+							Baixar
+							%br>
+							wallpaper
+							%br>
+							desktop
+			%section.creator
+				.wrap
+					%img.me{:src => "img/me.png", :alt => "Maria Fernanda Lamego", :width => "447", :height => "541"}/
+					.body
+						%h2.header Content Creator
+						%p A principal diferença entre a aventura e a grande aventura é simples: o Marrocos está ao lado da Europa, enquanto o Sudeste Asiático está a 10 horas de voo das principais cidades do Velho Continente.
+						%p No Marrocos, se eu descobrisse que a minha curiosidade por países exóticos não suportava a realidade, eu teria apenas que atravessar o estreito de Gibraltar e me refugiar na familiaríssima Espanha.
+						%p.social
+							%a.icon.instagram{:href => "#"}
+							%a.icon.facebook{:href => "#"}
+							%a.icon.twitter{:href => "#"}
+							%a.icon.pinterest{:href => "#"}
+							%a.icon.email{:href => "#"}
+			%section.contact
+				.wrap
+					.body
+						%h2.header Contato
+						%p<
+							Para sugestões, dúvidas ou reclamações, preencha o formulário ou escreva para
+							%a{:href => "mailto:contato@mafancy.com.br"} contato@mafancy.com.br
+					%form.contact-form{:action => "", :method => "post"}
+						.col
+							%p.field
+								%label{:for => "your-name"} Seu nome *
+								%input#your-name{:type => "text", :name => "", :placeholder => "Seu nome *"}/
+							%p.field
+								%label{:for => "your-email"} Seu e-mail *
+								%input#your-email{:type => "text", :name => "", :placeholder => "Seu e-mail *"}/
+							%p.field
+								%label{:for => "your-phone"} Seu telefone
+								%input#your-phone{:type => "text", :name => "", :placeholder => "Seu telefone"}/
+						.col
+							%p.area
+								%label{:for => "your-message"} Sua mensagem *
+								%textarea#your-message{:name => "", :cols => "30", :rows => "10", :placeholder => "Sua mensagem *"}
+							%p.submit
+								%button.button{:type => "submit"} Enviar
+			%section.ad
+				.wrap
+					%h2.header Anuncie
+					.body
+						%p<
+							Para sugestões, dúvidas ou reclamações, preencha o formulário ou escreva para
+							%a{:href => "mailto:contato@mafancy.com.br"} contato@mafancy.com.br
+		= Haml::Engine.new(File.read(File.dirname(__FILE__) + "/_footer.haml")).render

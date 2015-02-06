@@ -1,4 +1,5 @@
 @import "compass"
+@import "compass/css3"
 @import "compass/layout"
 
 $cyan: #5dfeff
@@ -62,7 +63,7 @@ $display: "Playfair Display", serif
 	padding: 0
 	+box-sizing(border-box)
 body
-	font: 18px/1.2 Times, serif
+	font: 18px/24px Times, "Times New Roman", serif
 	min-width: 900px
 	// &:before
 	// 	background: rgba(#0f0,.1)
@@ -88,7 +89,11 @@ img
 	outline: none
 	vertical-align: baseline
 a
+	color: #000
 	text-decoration: none
+	+single-transition(color, $speed, $ease)
+	&:hover, &:focus, &:active
+		color: $cyan
 
 // Generic
 
@@ -96,6 +101,7 @@ a
 	+pie-clearfix
 
 .wrap
+	@extend .cf
 	margin-left: auto
 	margin-right: auto
 	max-width: $max
@@ -115,9 +121,11 @@ a
 		top: 0
 		width: 100%
 
-.link
+.link,
+.button
 	border: 1px solid #000
 	color: #000
+	cursor: pointer
 	display: inline-block
 	font: 14px/30px $roboto
 	padding: 0 15px 0 5px
@@ -130,13 +138,15 @@ a
 		background: #000
 		color: #fff
 
-// Theme
+// Header
 
 .head
 	border-top: 40px solid #eee
 	position: relative
 .logo
-	padding: 71px 0
+	height: 250px
+	line-height: 0
+	padding: 71px 0 0
 	text-align: center
 	a
 		display: inline-block
@@ -149,7 +159,7 @@ a
 	border-bottom: 1px solid #e5e5e5
 	.menu-site
 		padding: 0 40px
-		top: -300px
+		top: -291px
 		+stretch-x
 		.menu-item
 			float: left
@@ -163,6 +173,13 @@ a
 					color: #000
 			+ .menu-item
 				margin-left: 25px
+		.current:before
+			background: $cyan
+			bottom: -3px
+			content: ""
+			display: block
+			height: 2px
+			+stretch-x(-5px, -5px)
 	.menu-categories
 		padding: 0 40px
 		.menu-item
@@ -171,11 +188,8 @@ a
 			position: relative
 			text-transform: uppercase
 			a
-				color: #000
 				display: block
 				+single-transition(color, $speed, $ease)
-				&:hover, &:focus, &:active
-					color: $cyan
 			+ .menu-item
 				margin-left: 25px
 		.current:before
@@ -192,11 +206,8 @@ a
 			float: left
 			line-height: 60px
 			a
-				color: #000
 				display: block
 				+single-transition(color, $speed, $ease)
-				&:hover, &:focus, &:active
-					color: $cyan
 				&:before
 					vertical-align: middle
 			+ .menu-item
@@ -207,7 +218,7 @@ a
 .search-form
 	position: absolute
 	right: 40px
-	top: (6px - 300)
+	top: (6px - 291)
 .search-field
 	background: none
 	border: 0 none
@@ -229,6 +240,115 @@ a
 	margin: 0
 	padding: 8px 6px 4px
 	vertical-align: bottom
+
+// Footer
+
+.foot
+	@extend .cf
+	background: #000
+	clear: both
+.tv
+	border-bottom: 8px solid $cyan
+	display: none
+	padding: 80px 120px 60px
+	.wrap
+		max-width: ($max - 120 * 2)
+	.header
+		float: left
+		margin: 0 0 48px 38px
+	.subscribe
+		border-color: $cyan
+		color: $cyan
+		float: right
+		margin: 9px 12px 48px 0
+		&:hover, &:focus, &:active
+			background: $cyan
+			color: #000
+.widgets
+	@extend .cf
+.widget
+	float: left
+	padding: 30px 40px 40px
+	width: (100% / 3)
+	ul
+		font: 100 16px/1.6 $roboto
+	a
+		color: #fff
+		+single-transition(all, $speed, $ease)
+		&:hover, &:focus, &:active
+			color: $cyan
+.header,
+.widget-title
+	color: $cyan
+	font: 700 14px $roboto
+	margin-bottom: 25px
+	text-transform: uppercase
+.popular
+	background: $cyan
+	padding: 30px 40px 40px
+	.wrap
+		max-width: ($max - 40 * 2)
+	.header
+		color: #000
+	.tile-list
+		margin: -10px -10px 0
+.nav-foot
+	color: #fff
+	float: right
+	padding: 60px 40px 60px 0
+	white-space: nowrap
+	.menu-item a
+		color: #fff
+		+single-transition(color, $speed, $ease)
+		&:hover, &:focus, &:active
+			color: $cyan
+	.menu-categories
+		border-bottom: 1px solid #fff
+		font-size: 0
+		.menu-item
+			display: inline-block
+			font: 14px/46px $roboto
+			text-transform: uppercase
+			+ .menu-item:before
+				content: "."
+				display: inline
+				margin: 0 10px
+	.menu-site
+		float: left
+		font: 100 12px/46px $roboto
+		text-transform: uppercase
+		.menu-item
+			float: left
+			+ .menu-item
+				margin-left: 20px
+	.menu-social
+		float: right
+		line-height: 46px
+		.menu-item
+			float: left
+			a:before
+				vertical-align: middle
+			+ .menu-item
+				margin-left: 15px
+.copyright
+	$h: image-height("logohor.png")
+	$w: image-width("logohor.png")
+	color: rgba(#fff,.4)
+	float: left
+	font: 9px/12px $roboto
+	padding: 60px 0 20px 40px
+	text-transform: uppercase
+	width: $w
+	&:before
+		background: generated-image-url("logohor@2x.png")
+		+background-size($w $h)
+		content: ""
+		display: block
+		height: $h
+		margin: 0 0 20px -10px
+		width: $w
+
+// Index
 
 .main
 	padding-bottom: 60px
@@ -310,106 +430,282 @@ a
 	padding: 30px
 	text-align: center
 
-.foot
-	@extend .cf
-	background: #000
-	clear: both
-.tv
-	border-bottom: 8px solid $cyan
-	padding: 80px 120px 60px
-	.wrap
-		max-width: ($max - 120 * 2)
-	.header
-		float: left
-		margin: 0 0 48px 38px
-	.subscribe
-		border-color: $cyan
-		color: $cyan
-		float: right
-		margin: 9px 12px 48px 0
-		&:hover, &:focus, &:active
-			background: $cyan
-			color: #000
-.widgets
-	@extend .cf
-.widget
-	float: left
-	padding: 30px 40px 40px
-	width: (100% / 3)
-	ul
-		font: 100 16px/1.6 $roboto
-	a
-		color: #fff
-		+single-transition(all, $speed, $ease)
-		&:hover, &:focus, &:active
-			color: $cyan
-.header,
-.widget-title
-	color: $cyan
-	font: 700 14px $roboto
-	margin-bottom: 25px
-	text-transform: uppercase
-.related
-	background: $cyan
-	padding: 30px 40px 40px
+// Single
+
+.entry-head
+	background: #f7f7f7
+	.p-name
+		color: #000
+		font: 50px/1 $display
+		padding: 40px 40px 10px
+	.p-category
+		display: inline-block
+		font: italic 12px/15px $display
+		margin-left: 40px
+		padding: 6px 0 35px
+		position: relative
+		text-transform: lowercase
+		&:before
+			background: #848484
+			content: ""
+			display: block
+			height: 1px
+			left: 0
+			position: absolute
+			top: 0
+			width: 8px
+	.dt-published
+		font: 10px/15px $roboto
+		display: inline-block
+		padding: 6px 0 35px
+		text-transform: uppercase
+		&:before
+			content: "–"
+			margin-right: 5px
+.e-content
+	padding: 40px
 	.wrap
 		max-width: ($max - 40 * 2)
+	p, ul, ol
+		margin-bottom: 24px
+	h1, h2, h3, h4, h5, h6
+		font: 20px/24px $display
+		margin-bottom: 24px
+		text-transform: uppercase
+.entry-foot
+	background: #f7f7f7
+	clear: both
+	.p-category
+		float: left
+		font: italic 12px/30px $display
+		padding: 30px 0 30px 40px
+		text-transform: lowercase
+		strong
+			font: normal 10px $roboto
+			margin-right: 3px
+			text-transform: uppercase
+	.entry-share
+		float: right
+		font: normal 10px/30px $roboto
+		padding: 30px 40px 30px 0
+		text-transform: uppercase
+		strong
+			font-weight: normal
+			margin-right: 8px
+		a
+			display: inline-block
+			font-size: 18px
+			height: 30px
+			line-height: inherit
+			span
+				font-size: 10px
+				font-weight: 700
+				margin-left: 3px
+			+ a
+				border-left: 1px solid #ccc
+				margin-left: 8px
+				padding-left: 8px
+			&:before
+				vertical-align: middle
+.related
+	border-top: 1px solid #dedede
+	clear: both
+	padding-bottom: 30px
+.related,
+.comments
 	.header
 		color: #000
-	.tile-list
-		margin: -10px -10px 0
-.nav-foot
-	color: #fff
-	float: right
-	padding: 60px 40px 60px 0
-	white-space: nowrap
-	.menu-item a
+		padding: 40px 40px 0
+.comments-list
+	padding: 0 40px
+
+// About
+
+.about
+	min-height: (image-height("wallpaper.jpg") + 60 * 2)
+	overflow: hidden
+	.body
+		padding: 60px 480px 60px 40px
+		p
+			margin-top: 24px
+	.header
+		color: #000
+		font: 50px/1 $display
+		margin-bottom: 50px
+		padding-bottom: 10px
+		position: relative
+		text-transform: none
+		&:before
+			background: #848484
+			bottom: 0
+			content: ""
+			display: block
+			height: 1px
+			left: 0
+			position: absolute
+			width: 8px
+		.sub
+			bottom: -22px
+			font: italic 12px/1.5 $display
+			left: 0
+			position: absolute
+			text-transform: lowercase
+			white-space: nowrap
+	.wallpapers
+		background: generated-image-url("wallpaper.jpg") no-repeat
+		height: image-height("wallpaper.jpg")
+		position: absolute
+		right: -175px
+		top: 50px
+		width: image-width("wallpaper.jpg")
+	.iphone,
+	.desktop
 		color: #fff
-		+single-transition(color, $speed, $ease)
+		display: block
+		font: 14px/18px $roboto
+		opacity: 0
+		position: absolute
+		text-align: center
+		text-transform: uppercase
+		+single-transition(opacity, $speed, $ease)
+		&:before
+			$h: image-height("down.png")
+			$w: image-width("down.png")
+			background: generated-image-url("down@2x.png")
+			+background-size($w $h)
+			content: ""
+			display: block
+			height: $h
+			margin: 0 auto 7px
+			width: $w
+		&:hover, &:focus, &:active
+			opacity: 1
+	.iphone
+		background: rgba(#333,.8)
+		height: 187px
+		left: 27px
+		padding-top: 33px
+		top: 169px
+		width: 108px
+		z-index: 2
+	.desktop
+		background: generated-image-url("mask.png") no-repeat 0 0
+		height: 294px
+		left: 77px
+		padding: 85px 108px 0 0
+		top: 23px
+		width: 468px
+		z-index: 1
+.creator
+	background: #333 generated-image-url("pattern.png") center center
+	color: #fff
+	.me
+		float: left
+		height: auto
+		margin-top: -30px
+		width: (100% / 12 * 4)
+	.body
+		float: left
+		padding: 60px 40px
+		width: (100% / 12 * 7)
+		p
+			margin-top: 24px
+	.header
+		color: $cyan
+		font: 34px/48px $display
+		margin-bottom: 24px
+		text-transform: none
+	.social a
+		color: #fff
+		margin-right: 10px
 		&:hover, &:focus, &:active
 			color: $cyan
-	.menu-categories
-		border-bottom: 1px solid #fff
-		font-size: 0
-		.menu-item
-			display: inline-block
-			font: 14px/46px $roboto
-			text-transform: uppercase
-			+ .menu-item:before
-				content: "."
-				display: inline
-				margin: 0 10px
-	.menu-site
+.contact
+	@extend .cf
+	.header
+		color: #000
+		font: 50px/1 $display
+		padding: 0 0 10px
+		position: relative
+		text-transform: none
+		&:before
+			background: #848484
+			bottom: 0
+			content: ""
+			display: block
+			height: 1px
+			left: 0
+			position: absolute
+			width: 8px
+	.body
 		float: left
-		font: 100 12px/46px $roboto
-		text-transform: uppercase
-		.menu-item
-			float: left
-			+ .menu-item
-				margin-left: 20px
-	.menu-social
+		padding: 60px 40px
+		width: (100% / 12 * 4)
+		a
+			text-decoration: underline
+	form
 		float: right
-		line-height: 46px
-		.menu-item
-			float: left
-			a:before
-				vertical-align: middle
-			+ .menu-item
-				margin-left: 15px
-.copyright
-	$h: image-height("logohor.png")
-	$w: image-width("logohor.png")
-	color: rgba(#fff,.4)
-	float: left
-	font: 9px/12px $roboto
-	padding: 60px 0 20px 40px
-	text-transform: uppercase
-	width: $w
-	&:before
-		background: generated-image-url("logohor@2x.png")
-		+background-size($w, $h)
-		content: ""
+		padding: 60px (40px - 8)
+		position: relative
+		width: (100% / 12 * 8)
+		label
+			display: none
+	.col
+		float: left
+		padding: 0 8px
+		width: 50%
+		input,
+		textarea
+			border: 1px solid #ccc
+			display: block
+			font: 18px/24px Times, serif
+			height: 45px
+			margin: 0
+			padding: 6px 8px
+			width: 100%
+			+input-placeholder
+				color: #000
+				font: 10px $roboto
+				text-transform: uppercase
+		textarea
+			height: 167px
+			padding-top: 10px
+			padding-bottom: 10px
+	.field
 		display: block
-		height: $h
-		margin: 0 0 20px -10px
-		width: $w
+		+ .field
+			margin-top: 16px
+	.submit
+		margin-top: 16px
+		text-align: right
+	.button:before
+		content: "›"
+.ad
+	@extend .cf
+	background: #eaeaea
+	margin-bottom: -60px
+	padding: 60px 0
+	.header
+		color: #000
+		float: left
+		font: 50px/1 $display
+		margin: 0
+		padding: 10px 40px
+		position: relative
+		text-transform: none
+		width: (100% / 12 * 4)
+		&:before
+			background: #848484
+			bottom: 0
+			content: ""
+			display: block
+			height: 1px
+			left: 40px
+			position: absolute
+			width: 8px
+	.body
+		float: left
+		padding: 13px 40px
+		width: (100% / 12 * 6)
+		a
+			text-decoration: underline
