@@ -5,209 +5,111 @@
 		%title Mafancy. by Maria Fernanda Lamego
 		%link{:rel => "stylesheet", :href => "css/screen.css", :media => "screen, projection"}/
 	%body.home
-		%header.head{:role => "banner"}
-			%h1.logo<
-				%a{:href => "#"}<
-					%img{:src => "img/logo@2x.png", :alt => "Mafancy. by Maria Fernanda Lamego", :width => "428", :height => "108"}/
-			%nav.nav-head
-				%ul.menu-site
-					- ["Home", "About", "Contato", "Anuncie"].each do |o|
-						%li.menu-item<
-							%a{:href => "#"} #{o}
-				%ul.menu-categories
-					- ["Moda", "Beleza", "Viagem", "Cultura", "Lifestyle", "Crônicas", "Mafancy TV"].each do |o|
-						%li.menu-item<
-							%a{:href => "#"} #{o}
-				%ul.menu-social
-					- ["twitter", "facebook", "instagram", "youtube", "rss", "email"].each do |o|
-						%li{:class => "menu-item icon #{o}"}<
-							%a{:href => "#", :target => "_blank"}
-				%form.search-form{:action => "", :method => "get"}
-					%fieldset
-						%legend Busca
-						%input#s.search-field{:type => "search", :name => "s", :required => true, :placeholder => "Busca"}/
-						%button.search-submit{:type => "submit"}<
-							%i.icon.search
+		= Haml::Engine.new(File.read(File.dirname(__FILE__) + "/_header.haml")).render
 		%main.main{:role => "main"}
-			.tile-list#masonry
-				.sizer
-				.tile.w2.h2
-					%a{:href => "#", :style => "background-image:url(img/thumb-d-1.jpg)"}
-						.tile-body
-							%p.tile-category Viagem
-							%h2.tile-title Capadócia de um jeito inusitado
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile.w2
-					%a{:href => "#", :style => "background-image:url(img/thumb-h-1.jpg)"}
-						.tile-body
-							%p.tile-category Beleza
-							%h2.tile-title Q. What blush to wear with red lips?
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile
-					%a{:href => "#", :style => "background-image:url(img/thumb-1.jpg)"}
-						.tile-body
-							%p.tile-category Crônica
-							%h2.tile-title Como estou?
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile
-					%a{:href => "#", :style => "background-image:url(img/thumb-2.jpg)"}
-						.tile-body
-							%p.tile-category Beleza
-							%h2.tile-title Blush nela!
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile.h2
-					%a{:href => "#", :style => "background-image:url(img/thumb-v-1.jpg)"}
-						.tile-body
-							%p.tile-category Cultura
-							%h2.tile-title Snaps #2
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile
-					%a{:href => "#", :style => "background-image:url(img/thumb-3.jpg)"}
-						.tile-body
-							%p.tile-category Lifestyle
-							%h2.tile-title Luzes pra que te quero?
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile
-					%a{:href => "#", :style => "background-image:url(img/thumb-4.jpg)"}
-						.tile-body
-							%p.tile-category Moda
-							%h2.tile-title SPFW 2014
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile
-					%a{:href => "#", :style => "background-image:url(img/thumb-1.jpg)"}
-						.tile-body
-							%p.tile-category Cultura
-							%h2.tile-title Wallpaper guide
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile.w2
-					%a{:href => "#", :style => "background-image:url(img/thumb-h-2.jpg)"}
-						.tile-body
-							%p.tile-category Cultura
-							%h2.tile-title Doce Paris
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-				.tile
-					%a{:href => "#", :style => "background-image:url(img/thumb-3.jpg)"}
-						.tile-body
-							%p.tile-category Lifestyle
-							%h2.tile-title Luzes pra que te quero?
-					.tile-share
-						%a.icon.facebook{:href => "#", :target => "_blank"}
-						%a.icon.twitter{:href => "#", :target => "_blank"}
-						%a.icon.pinterest{:href => "#", :target => "_blank"}
-						%a.icon.email{:href => "#", :target => "_blank"}
-			.pagination
-				%a.link.more{:href => "#"} Carregar mais posts
-		%footer.foot{:role => "contentinfo"}
-			%section.tv
-				%h3.header<
-					%img{:src => "img/minilogo@2x.png", :alt => "MFTV", :width => "125", :height => "43"}/
-				%a.link.subscribe{:href => "", :target => "_blank"} Assine o canal
-				.media
-					%iframe{:src => "https://www.youtube.com/embed/VSATzD7bkZU", :frameborder => "0", :width => "560", :height => "315", :allowfullscreen => true}
-			.widgets
-				%aside.widget.widget_text
-					%h4.widget-title Facebook
-					.txtwidget
-						.fb-like-box{:data => {:href => "https://www.facebook.com/FacebookDevelopers", :colorscheme => "dark", :header => "false", :stream => "false", :show => {:border => "false", :faces => "true"}}}
-				%aside.widget
-					%h4.widget-title Instagram
-				%aside.widget.widget_text
-					%h4.widget-title Blogroll
-					%ul
-						%li<
-							%a{:href => "#"} Modices
-						%li<
-							%a{:href => "#"} Girls With Style
-						%li<
-							%a{:href => "#"} Small Fashion Diary
-						%li<
-							%a{:href => "#"} Style 85
-						%li<
-							%a{:href => "#"} The Man Repeller
-						%li<
-							%a{:href => "#"} Fashion Indie
-						%li<
-							%a{:href => "#"} Et pourquoi pas Coline
-						%li<
-							%a{:href => "#"} The Criselle Factor
-						%li<
-							%a{:href => "#"} Gary pepper girl
-			%section.related
-				%h3.header Posts mais lidos
-				.tile-list
-					- 4.times do |n|
-						.tile
-							%a{:href => "#", :style => "background-image:url(img/thumb-3.jpg)"}
-								.tile-body
-									%p.tile-category Crônica
-									%h2.tile-title Como estou?
-							.tile-share
-								%a.icon.facebook{:href => "#", :target => "_blank"}
-								%a.icon.twitter{:href => "#", :target => "_blank"}
-								%a.icon.pinterest{:href => "#", :target => "_blank"}
-								%a.icon.email{:href => "#", :target => "_blank"}
-			.nav-foot
-				%ul.menu-categories
-					- ["Moda", "Beleza", "Viagem", "Cultura", "Lifestyle", "Crônicas", "Mafancy TV"].each do |o|
-						%li.menu-item<
-							%a{:href => "#"} #{o}
-				%ul.menu-site
-					- ["Home", "About", "Contato", "Anuncie"].each do |o|
-						%li.menu-item<
-							%a{:href => "#"} #{o}
-				%ul.menu-social
-					- ["twitter", "facebook", "instagram", "youtube", "rss", "email"].each do |o|
-						%li{:class => "menu-item icon #{o}"}<
-							%a{:href => "#", :target => "_blank"}
-			%p.copyright Todo o conteúdo publicado aqui é produzido por Maria Fernanda Lamego, exceto quando sinalizado. Por favor, não utilize nenhuma foto ou texto sem pedir permissão (hello@mafancy.com)
-
-		/ Facebook SDK
-		#fb-root
-		:javascript
-			(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&appId=646707978808262&version=v2.0";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-
-		/ Scripts
-		%script{:src => "js/lib/packery.pkgd.min.js"}
-		%script{:src => "js/scripts.js"}
+			.wrap
+				.tile-list#masonry
+					.sizer
+					.tile.w2.h2
+						%a{:href => "#", :style => "background-image:url(img/thumb-d-1.jpg)"}
+							.tile-body
+								%p.tile-category Viagem
+								%h2.tile-title Capadócia de um jeito inusitado
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile.w2
+						%a{:href => "#", :style => "background-image:url(img/thumb-h-1.jpg)"}
+							.tile-body
+								%p.tile-category Beleza
+								%h2.tile-title Q. What blush to wear with red lips?
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile
+						%a{:href => "#", :style => "background-image:url(img/thumb-1.jpg)"}
+							.tile-body
+								%p.tile-category Crônica
+								%h2.tile-title Como estou?
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile
+						%a{:href => "#", :style => "background-image:url(img/thumb-2.jpg)"}
+							.tile-body
+								%p.tile-category Beleza
+								%h2.tile-title Blush nela!
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile.h2
+						%a{:href => "#", :style => "background-image:url(img/thumb-v-1.jpg)"}
+							.tile-body
+								%p.tile-category Cultura
+								%h2.tile-title Snaps #2
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile
+						%a{:href => "#", :style => "background-image:url(img/thumb-3.jpg)"}
+							.tile-body
+								%p.tile-category Lifestyle
+								%h2.tile-title Luzes pra que te quero?
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile
+						%a{:href => "#", :style => "background-image:url(img/thumb-4.jpg)"}
+							.tile-body
+								%p.tile-category Moda
+								%h2.tile-title SPFW 2014
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile
+						%a{:href => "#", :style => "background-image:url(img/thumb-1.jpg)"}
+							.tile-body
+								%p.tile-category Cultura
+								%h2.tile-title Wallpaper guide
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile.w2
+						%a{:href => "#", :style => "background-image:url(img/thumb-h-2.jpg)"}
+							.tile-body
+								%p.tile-category Cultura
+								%h2.tile-title Doce Paris
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+					.tile
+						%a{:href => "#", :style => "background-image:url(img/thumb-3.jpg)"}
+							.tile-body
+								%p.tile-category Lifestyle
+								%h2.tile-title Luzes pra que te quero?
+						.tile-share
+							%a.icon.facebook{:href => "#", :target => "_blank"}
+							%a.icon.twitter{:href => "#", :target => "_blank"}
+							%a.icon.pinterest{:href => "#", :target => "_blank"}
+							%a.icon.email{:href => "#", :target => "_blank"}
+				.pagination
+					%a.link.more{:href => "#"} Carregar mais posts
+		= Haml::Engine.new(File.read(File.dirname(__FILE__) + "/_footer.haml")).render

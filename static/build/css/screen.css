@@ -1,8 +1,8 @@
 @import url("http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Roboto:400,700,100");
 @font-face {
   font-family: "mafancy";
-  src: url('../fonts/mafancy/mafancy.eot?1423095944');
-  src: url('../fonts/mafancy/mafancy.eot?&1423095944#iefix') format('embedded-opentype'), url('../fonts/mafancy/mafancy.woff?1423095944') format('woff'), url('../fonts/mafancy/mafancy.ttf?1423095944') format('truetype'), url('../fonts/mafancy/mafancy.svg?1423095944') format('svg');
+  src: url('../fonts/mafancy/mafancy.eot?1423179718');
+  src: url('../fonts/mafancy/mafancy.eot?&1423179718#iefix') format('embedded-opentype'), url('../fonts/mafancy/mafancy.woff?1423179718') format('woff'), url('../fonts/mafancy/mafancy.ttf?1423179718') format('truetype'), url('../fonts/mafancy/mafancy.svg?1423179718') format('svg');
   font-weight: normal;
   font-style: normal; }
 .icon:before, .icon a:before {
@@ -71,7 +71,8 @@ a {
 .wrap {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px; }
+  max-width: 1200px;
+  position: relative; }
 
 .media {
   clear: both;
@@ -108,7 +109,7 @@ a {
     color: #fff; }
 
 .head {
-  padding: 40px 0 0;
+  border-top: 40px solid #eee;
   position: relative; }
 
 .logo {
@@ -124,9 +125,8 @@ a {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5; }
   .nav-head .menu-site {
-    background: #eee;
     padding: 0 40px;
-    top: 0;
+    top: -300px;
     position: absolute;
     left: 0;
     right: 0; }
@@ -150,6 +150,7 @@ a {
     .nav-head .menu-categories .menu-item {
       float: left;
       font: 15px/60px "Roboto", sans-serif;
+      position: relative;
       text-transform: uppercase; }
       .nav-head .menu-categories .menu-item a {
         color: #000;
@@ -162,6 +163,15 @@ a {
           color: #5dfeff; }
       .nav-head .menu-categories .menu-item + .menu-item {
         margin-left: 25px; }
+    .nav-head .menu-categories .current:before {
+      background: #5dfeff;
+      bottom: -4px;
+      content: "";
+      display: block;
+      height: 3px;
+      position: absolute;
+      left: -5px;
+      right: -5px; }
   .nav-head .menu-social {
     float: right;
     padding-right: 40px; }
@@ -188,7 +198,7 @@ a {
 .search-form {
   position: absolute;
   right: 40px;
-  top: 6px; }
+  top: -294px; }
 
 .search-field {
   background: none;
@@ -200,7 +210,9 @@ a {
   outline: none;
   padding: 5px;
   text-transform: uppercase;
-  width: 250px; }
+  width: 250px;
+  -moz-appearance: none;
+  -webkit-appearance: none; }
 
 .search-submit {
   background: none;
@@ -326,6 +338,8 @@ a {
 .tv {
   border-bottom: 8px solid #5dfeff;
   padding: 80px 120px 60px; }
+  .tv .wrap {
+    max-width: 960px; }
   .tv .header {
     float: left;
     margin: 0 0 48px 38px; }
@@ -363,6 +377,8 @@ a {
 .related {
   background: #5dfeff;
   padding: 30px 40px 40px; }
+  .related .wrap {
+    max-width: 1120px; }
   .related .header {
     color: #000; }
   .related .tile-list {

@@ -1,0 +1,24 @@
+﻿%header.head{:role => "banner"}
+	%h1.logo<
+		%a{:href => "#"}<
+			%img{:src => "img/logo@2x.png", :alt => "Mafancy. by Maria Fernanda Lamego", :width => "428", :height => "108"}/
+	%nav.nav-head
+		.wrap
+			%ul.menu-site
+				- ["Home", "About", "Contato", "Anuncie"].each do |o|
+					%li.menu-item<
+						%a{:href => "#"} #{o}
+			%ul.menu-categories
+				- ["Moda", "Beleza", "Viagem", "Cultura", "Lifestyle", "Crônicas", "Mafancy TV"].each do |o|
+					%li.menu-item<
+						%a{:href => "#"} #{o}
+			%ul.menu-social
+				- ["twitter", "facebook", "instagram", "youtube", "rss", "email"].each do |o|
+					%li{:class => "menu-item icon #{o}"}<
+						%a{:href => "#", :target => "_blank"}
+			%form.search-form{:action => "", :method => "get"}
+				%fieldset
+					%legend Busca
+					%input#s.search-field{:type => "search", :name => "s", :required => true, :placeholder => "Busca"}/
+					%button.search-submit{:type => "submit"}<
+						%i.icon.search
