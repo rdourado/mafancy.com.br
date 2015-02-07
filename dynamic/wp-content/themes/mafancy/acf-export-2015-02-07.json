@@ -1,0 +1,472 @@
+[
+    {
+        "key": "group_54d574596888d",
+        "title": "About",
+        "fields": [
+            {
+                "key": "field_54d57594fca05",
+                "label": "Subt\u00edtulo",
+                "name": "subtitle",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Um pouco sobre a mafancy",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_54d5763ffca07",
+                "label": "Wallpaper iPhone",
+                "name": "wallpaper-iphone",
+                "prefix": "",
+                "type": "file",
+                "instructions": "Envie uma imagem ou um .zip com v\u00e1rias imagens.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all"
+            },
+            {
+                "key": "field_54d575f4fca06",
+                "label": "Wallpaper Desktop",
+                "name": "wallpaper-desktop",
+                "prefix": "",
+                "type": "file",
+                "instructions": "Envie uma imagem ou um .zip com v\u00e1rias imagens.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all"
+            },
+            {
+                "key": "field_54d57662fca08",
+                "label": "Content Creator",
+                "name": "content-creator",
+                "prefix": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top"
+            },
+            {
+                "key": "field_54d57699fca09",
+                "label": "Content Creator",
+                "name": "content-creator",
+                "prefix": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_54d578245af67",
+                "label": "Imagem",
+                "name": "imagem",
+                "prefix": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "full",
+                "library": "all"
+            },
+            {
+                "key": "field_54d576bcfca0a",
+                "label": "Instagram",
+                "name": "instagram",
+                "prefix": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_54d576d0fca0b",
+                "label": "Facebook",
+                "name": "facebook",
+                "prefix": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_54d576d8fca0c",
+                "label": "Twitter",
+                "name": "twitter",
+                "prefix": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_54d576defca0d",
+                "label": "Pinterest",
+                "name": "pinterest",
+                "prefix": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_54d576e8fca0e",
+                "label": "Email",
+                "name": "email",
+                "prefix": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_54d576f7fca0f",
+                "label": "Contato",
+                "name": "contato",
+                "prefix": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top"
+            },
+            {
+                "key": "field_54d5770cfca10",
+                "label": "Contato",
+                "name": "contato",
+                "prefix": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_54d57736fca11",
+                "label": "Anuncie",
+                "name": "",
+                "prefix": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top"
+            },
+            {
+                "key": "field_54d57741fca12",
+                "label": "Anuncie",
+                "name": "anuncie",
+                "prefix": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "about.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "permalink",
+            "excerpt",
+            "custom_fields",
+            "discussion",
+            "comments",
+            "revisions",
+            "slug",
+            "author",
+            "format",
+            "page_attributes",
+            "featured_image",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ]
+    },
+    {
+        "key": "group_54d5624ea9e7a",
+        "title": "Imagem Destacada",
+        "fields": [
+            {
+                "key": "field_54d562792d7ab",
+                "label": "Imagem Destacada",
+                "name": "_thumbnail_id",
+                "prefix": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "preview_size": "post-thumbnail",
+                "library": "all"
+            },
+            {
+                "key": "field_54d562b72d7ac",
+                "label": "Formato do bloco",
+                "name": "tile-size",
+                "prefix": "",
+                "type": "radio",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "post-thumbnail": "Normal",
+                    "horizontal": "Horizontal",
+                    "vertical": "Vertical",
+                    "double": "Grande"
+                },
+                "other_choice": 0,
+                "save_other_choice": 0,
+                "default_value": "post-thumbnail",
+                "layout": "vertical"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "excerpt",
+            "discussion",
+            "comments",
+            "revisions",
+            "format",
+            "featured_image",
+            "send-trackbacks"
+        ]
+    },
+    {
+        "key": "group_54d58d617553c",
+        "title": "Rodap\u00e9",
+        "fields": [
+            {
+                "key": "field_54d58d682c77e",
+                "label": "Copyright",
+                "name": "copyright",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-rodape"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": ""
+    },
+    {
+        "key": "group_54d58bfe7996a",
+        "title": "TV",
+        "fields": [
+            {
+                "key": "field_54d58c2bca55a",
+                "label": "URL do v\u00eddeo",
+                "name": "video",
+                "prefix": "",
+                "type": "url",
+                "instructions": "Ex: http:\/\/youtu.be\/VSATzD7bkZU",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_54d58ce2ec6d5",
+                "label": "URL do canal no Youtube",
+                "name": "youtube",
+                "prefix": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "options_page",
+                    "operator": "==",
+                    "value": "acf-options-tv"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": ""
+    }
+]

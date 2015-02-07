@@ -20,7 +20,7 @@ $display: "Playfair Display", serif
 
 +font-face($icons, font-files("#{$icons}/#{$icons}.woff", "#{$icons}/#{$icons}.ttf", "#{$icons}/#{$icons}.svg"), "#{$icons}/#{$icons}.eot", normal, normal)
 
-.icon
+.icon, .post-edit-link
 	&:before, a:before
 		font-family: $icons !important
 		font-style: normal !important
@@ -31,6 +31,7 @@ $display: "Playfair Display", serif
 		speak: none
 		-webkit-font-smoothing: antialiased
 		-moz-osx-font-smoothing: grayscale
+.icon
 	&.instagram
 		&:before, a:before
 			content: "i"
@@ -55,6 +56,11 @@ $display: "Playfair Display", serif
 	&.pinterest
 		&:before, a:before
 			content: "p"
+.post-edit-link
+	margin-left: 20px !important
+	vertical-align: middle
+	&:before, a:before
+		content: "w"
 
 // Tags
 
@@ -65,18 +71,8 @@ $display: "Playfair Display", serif
 body
 	font: 18px/24px Times, "Times New Roman", serif
 	min-width: 900px
-	// &:before
-	// 	background: rgba(#0f0,.1)
-	// 	bottom: 0
-	// 	content: ""
-	// 	display: block
-	// 	left: 50%
-	// 	margin-left: -600px
-	// 	pointer-events: none
-	// 	position: fixed
-	// 	top: 0
-	// 	width: $max
-	// 	z-index: 99
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
 img, fieldset
 	border: 0 none
 hr, legend
@@ -122,7 +118,8 @@ a
 		width: 100%
 
 .link,
-.button
+.button,
+.pagination a
 	border: 1px solid #000
 	color: #000
 	cursor: pointer
@@ -164,6 +161,7 @@ a
 		.menu-item
 			float: left
 			font: 12px/40px $roboto
+			position: relative
 			text-transform: uppercase
 			a
 				color: rgba(#000,.5)
@@ -173,13 +171,6 @@ a
 					color: #000
 			+ .menu-item
 				margin-left: 25px
-		.current:before
-			background: $cyan
-			bottom: -3px
-			content: ""
-			display: block
-			height: 2px
-			+stretch-x(-5px, -5px)
 	.menu-categories
 		padding: 0 40px
 		.menu-item
@@ -192,7 +183,8 @@ a
 				+single-transition(color, $speed, $ease)
 			+ .menu-item
 				margin-left: 25px
-		.current:before
+		.current-menu-item:before,
+		.current-menu-parent:before
 			background: $cyan
 			bottom: -4px
 			content: ""
@@ -215,6 +207,8 @@ a
 .menu-item
 	&:before
 		display: none
+	.menu-social &
+		font-family: $icons
 .search-form
 	position: absolute
 	right: 40px
@@ -249,7 +243,6 @@ a
 	clear: both
 .tv
 	border-bottom: 8px solid $cyan
-	display: none
 	padding: 80px 120px 60px
 	.wrap
 		max-width: ($max - 120 * 2)
@@ -368,13 +361,23 @@ a
 .tile
 	&.w2
 		width: (100% / 2)
+		.popular &,
+		.related &
+			width: (100% / 4)
 		&:before
 			padding-top: 50%
+			.popular &,
+			.related &
+				padding-top: 100%
 	&.h2:before
 		padding-top: 200%
+		.popular &,
+		.related &
+			padding-top: 100%
 	&.w2.h2:before
 		padding-top: 100%
 	> a
+		background-color: rgba(#000,.1)
 		background-position: center center
 		background-repeat: no-repeat
 		+background-size(cover)
@@ -412,6 +415,10 @@ a
 	.w2.h2 &
 		font-size: 33px
 		padding-right: 40%
+		.popular &,
+		.related &
+			font-size: 20px
+			padding-right: 0
 .tile-share
 	opacity: 0
 	right: 28px
@@ -654,6 +661,12 @@ a
 		float: left
 		padding: 0 8px
 		width: 50%
+	.field
+		display: block
+		+ .field
+			margin-top: 16px
+	.field,
+	.area
 		input,
 		textarea
 			border: 1px solid #ccc
@@ -671,10 +684,9 @@ a
 			height: 167px
 			padding-top: 10px
 			padding-bottom: 10px
-	.field
-		display: block
-		+ .field
-			margin-top: 16px
+		.wpcf7-not-valid
+			border-color: $cyan
+			+box-shadow(0 0 0 1px $cyan)
 	.submit
 		margin-top: 16px
 		text-align: right
@@ -709,3 +721,12 @@ a
 		width: (100% / 12 * 6)
 		a
 			text-decoration: underline
+
+// Form
+
+.ajax-loader
+	float: left
+.screen-reader-response,
+.wpcf7-not-valid-tip,
+.wpcf7-validation-errors
+	display: none !important
