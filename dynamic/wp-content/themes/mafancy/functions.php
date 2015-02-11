@@ -86,24 +86,32 @@ function my_post_class( $classes )
 	global $post;
 	$tileSize = get_field( 'tile-size', $post->ID );
 	if ( $tileSize ) {
-		$classes[] = array(
+		$sizes = array(
 			'post-thumbnail' => '',
 			'horizontal'     => 'w2',
 			'vertical'       => 'h2',
 			'double'         => 'w2 h2',
-		)[ $tileSize ];
+		);
+		$classes[] = $sizes[$tileSize];
 	}
 	return $classes;
 }
 
-// add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+add_filter( 'acf/settings/show_admin', 'my_acf_show_admin' );
 
-// function my_toolbars( $toolbars )
-// {
-// 	$toolbars['Very Simple'] = array();
-// 	$toolbars['Very Simple'][1] = array('bold', 'italic');
-// 	return $toolbars;
-// }
+function my_acf_show_admin( $show )
+{
+	return get_current_user_id() == 1;
+}
+
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'my_toolbars'  );
+
+function my_toolbars( $toolbars )
+{
+	$toolbars['Very Simple'] = array();
+	$toolbars['Very Simple'][1] = array( 'bold', 'italic', 'link', 'unlink' );
+	return $toolbars;
+}
 
 // Actions
 
@@ -190,6 +198,21 @@ function my_view_count()
 	die();
 }
 
+add_action( 'admin_menu', 'remove_menus' );
+
+function remove_menus()
+{
+	global $menu;
+	$restricted = array( __('Tools'), __('Comments') );
+	end( $menu );
+	while ( prev( $menu ) ) {
+		$value = explode( ' ', $menu[key( $menu )][0] );
+		if ( in_array( $value[0] != NULL ? $value[0] : "" , $restricted ) ) {
+			unset( $menu[key( $menu )] );
+		}
+	}
+}
+
 // Register Theme Features
 
 add_action( 'after_setup_theme', 'custom_theme_features' );
@@ -208,7 +231,14 @@ function custom_theme_features()
 	// Tags in Html 5
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 	// Editor style
-	add_editor_style();
+	// add_editor_style();
+	// Infinite Scroll
+	add_theme_support( 'infinite-scroll', array(
+		'type'           => 'scroll',
+		'container'      => 'masonry',
+		'footer_widgets' => false,
+		'wrapper'        => false,
+	) );
 	// Options Pages
 	acf_add_options_page( array(
 		'page_title' => 'Personalizar',

@@ -33,13 +33,13 @@ if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
             <?php the_field('content-creator') ?>
             <p class="social">
               <?php if (get_field('instagram')) { ?>
-              <a class="icon instagram" href="<?php the_field('instagram') ?>"></a>
+              <a class="icon instagram" href="<?php the_field('instagram') ?>" target="_blank"></a>
               <?php } if (get_field('facebook')) { ?>
-              <a class="icon facebook" href="<?php the_field('facebook') ?>"></a>
+              <a class="icon facebook" href="<?php the_field('facebook') ?>" target="_blank"></a>
               <?php } if (get_field('twitter')) { ?>
-              <a class="icon twitter" href="<?php the_field('twitter') ?>"></a>
+              <a class="icon twitter" href="<?php the_field('twitter') ?>" target="_blank"></a>
               <?php } if (get_field('pinterest')) { ?>
-              <a class="icon pinterest" href="<?php the_field('pinterest') ?>"></a>
+              <a class="icon pinterest" href="<?php the_field('pinterest') ?>" target="_blank"></a>
               <?php } if (get_field('email')) { ?>
               <a class="icon email" href="<?php the_field('email') ?>"></a>
               <?php } ?>

@@ -436,6 +436,8 @@ a
 	clear: both
 	padding: 30px
 	text-align: center
+	.infinite-scroll &
+		display: none
 
 // Single
 
@@ -473,12 +475,21 @@ a
 	padding: 40px
 	.wrap
 		max-width: ($max - 40 * 2)
-	p, ul, ol
+	p, ul, ol, .wp-caption
 		margin-bottom: 24px
 	h1, h2, h3, h4, h5, h6
 		font: 20px/24px $display
 		margin-bottom: 24px
 		text-transform: uppercase
+	.size-full, .size-large
+		width: 100%
+	.wp-caption
+		width: auto !important
+	.wp-caption-text
+		color: #666
+		font-size: 13px
+		font-family: $roboto
+		text-align: right
 .entry-foot
 	background: #f7f7f7
 	clear: both
@@ -730,3 +741,14 @@ a
 .wpcf7-not-valid-tip,
 .wpcf7-validation-errors
 	display: none !important
+.wpcf7-mail-sent-ok
+	padding: 0 8px
+
+// Infinite Scroll
+
+#infinite-footer
+	display: none !important
+.infinite-loader
+	bottom: -35px
+	position: absolute
+	left: 50%

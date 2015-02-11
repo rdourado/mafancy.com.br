@@ -24,7 +24,7 @@
             <?php
             while ($query->have_posts()) {
               $query->the_post();
-              get_template_part('loop');
+              get_template_part('content');
             }
             ?>
           </div>

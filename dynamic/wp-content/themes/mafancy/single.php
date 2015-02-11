@@ -19,8 +19,7 @@
         <footer class="entry-foot">
           <div class="wrap">
             <p class="p-category">
-              <strong>Tags:</strong>
-              <?php the_tags(', ') ?>
+              <?php the_tags('<strong>Tags:</strong>', ', ') ?>
             </p>
             <p class="entry-share">
               <strong>Compartilhe esse post:</strong>
@@ -43,7 +42,7 @@
                 <?php
                 while ($query->have_posts()) {
                   $query->the_post();
-                  get_template_part('loop');
+                  get_template_part('content');
                 }
                 ?>
               </div>
