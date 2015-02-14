@@ -18,9 +18,9 @@ if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
           </div>
           <div class="wallpapers">
             <?php if (get_field('wallpaper-iphone')) { ?>
-            <a class="iphone" href="<?php the_field('wallpaper-iphone') ?>">Baixar<br>wallpaper<br>iPhone</a>
+            <a class="iphone" href="<?php the_field('wallpaper-iphone') ?>" target="_blank">Baixar<br>wallpaper<br>iPhone</a>
             <?php } if (get_field('wallpaper-desktop')) { ?>
-            <a class="desktop" href="<?php the_field('wallpaper-desktop') ?>">Baixar<br>wallpaper<br>desktop</a>
+            <a class="desktop" href="<?php the_field('wallpaper-desktop') ?>" target="_blank">Baixar<br>wallpaper<br>desktop</a>
             <?php } ?>
           </div>
         </div>
@@ -60,7 +60,7 @@ if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
         <div class="wrap">
           <h2 class="header">Anuncie</h2>
           <div class="body">
-            <?php the_field('contato') ?>
+            <?php the_field('anuncie') ?>
           </div>
         </div>
       </section>

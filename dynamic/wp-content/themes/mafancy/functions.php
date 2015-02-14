@@ -113,6 +113,13 @@ function my_toolbars( $toolbars )
 	return $toolbars;
 }
 
+add_filter( 'next_posts_link_attributes', 'my_next_posts_link_attributes' );
+
+function my_next_posts_link_attributes()
+{
+	return 'class="button next-posts"';
+}
+
 // Actions
 
 add_action( 'wp_footer', 'my_footer' );
@@ -147,7 +154,24 @@ function my_scripts()
 
 	// JS
 	wp_enqueue_script( 'packery', get_template_directory_uri() . '/js/lib/packery.pkgd.min.js', array(), '1.3.2', true );
-	wp_enqueue_script( 'my-js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'packery' ), filemtime( TEMPLATEPATH . '/js/scripts.js' ), true );
+	wp_register_script( 'my-js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'packery' ), filemtime( TEMPLATEPATH . '/js/scripts.js' ), true );
+
+	if ( ! is_single() && ! is_page() && ! is_404() ) {
+		global $wp_query, $query_string;
+		if ( $wp_query->max_num_pages > $wp_query->paged ) {
+			$query = wp_parse_args( $query_string, array(
+				'paged' => 1,
+				'post_status' => 'publish',
+			) );
+			wp_localize_script( 'my-js', 'myIS', array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'my_infinite_scroll_nonce' ),
+				'query'   => $query,
+				'max'     => $wp_query->max_num_pages,
+			) );
+		}
+	}
+	wp_enqueue_script( 'my-js' );
 
 	// View Count
 	if ( is_single() )
@@ -161,6 +185,23 @@ function my_scripts()
 		wp_enqueue_script( 'my-view-count' );
 	}
 }
+
+add_action( 'admin_menu', 'remove_menus' );
+
+function remove_menus()
+{
+	global $menu;
+	$restricted = array( __('Tools'), __('Comments') );
+	end( $menu );
+	while ( prev( $menu ) ) {
+		$value = explode( ' ', $menu[key( $menu )][0] );
+		if ( in_array( $value[0] != NULL ? $value[0] : "" , $restricted ) ) {
+			unset( $menu[key( $menu )] );
+		}
+	}
+}
+
+// Ajax
 
 add_action( 'wp_ajax_my_view_count', 'my_view_count' );
 
@@ -198,19 +239,21 @@ function my_view_count()
 	die();
 }
 
-add_action( 'admin_menu', 'remove_menus' );
+add_action( 'wp_ajax_my_infinite_scroll', 'my_infinite_scroll' );
 
-function remove_menus()
+function my_infinite_scroll()
 {
-	global $menu;
-	$restricted = array( __('Tools'), __('Comments') );
-	end( $menu );
-	while ( prev( $menu ) ) {
-		$value = explode( ' ', $menu[key( $menu )][0] );
-		if ( in_array( $value[0] != NULL ? $value[0] : "" , $restricted ) ) {
-			unset( $menu[key( $menu )] );
-		}
+	if ( ! wp_verify_nonce( $_REQUEST['nonce'], 'my_infinite_scroll_nonce' ) ) {
+		exit( 'No naughty business please' );
 	}
+
+	$query = new WP_Query( $_REQUEST['query'] );
+	while( $query->have_posts() ) {
+		$query->the_post();
+		get_template_part( 'loop' );
+	}
+
+	die();
 }
 
 // Register Theme Features
@@ -232,13 +275,6 @@ function custom_theme_features()
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 	// Editor style
 	// add_editor_style();
-	// Infinite Scroll
-	add_theme_support( 'infinite-scroll', array(
-		'type'           => 'scroll',
-		'container'      => 'masonry',
-		'footer_widgets' => false,
-		'wrapper'        => false,
-	) );
 	// Options Pages
 	acf_add_options_page( array(
 		'page_title' => 'Personalizar',

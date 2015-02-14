@@ -42,7 +42,7 @@
                 <?php
                 while ($query->have_posts()) {
                   $query->the_post();
-                  get_template_part('content');
+                  get_template_part('loop');
                 }
                 ?>
               </div>

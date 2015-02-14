@@ -6,7 +6,9 @@ $cyan: #5dfeff
 
 $speed: .2s
 $ease: ease-out
-$max: 1200px
+// $max: 1200px
+$max: 960px
+$min: $max
 
 // Fonts
 
@@ -70,7 +72,7 @@ $display: "Playfair Display", serif
 	+box-sizing(border-box)
 body
 	font: 18px/24px Times, "Times New Roman", serif
-	min-width: 900px
+	min-width: $min
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 img, fieldset
@@ -119,7 +121,9 @@ a
 
 .link,
 .button,
-.pagination a
+.pagination a,
+#content #infinite-handle span
+	background: none
 	border: 1px solid #000
 	color: #000
 	cursor: pointer
@@ -239,13 +243,15 @@ a
 
 .foot
 	@extend .cf
-	background: #000
+	background: #141414 generated-image-url("texture.png") left bottom no-repeat
 	clear: both
 .tv
+	background: #141414 generated-image-url("texture.png") left bottom no-repeat
+	+background-size(contain)
 	border-bottom: 8px solid $cyan
-	padding: 80px 120px 60px
+	padding: 80px 40px 60px
 	.wrap
-		max-width: ($max - 120 * 2)
+		max-width: ($max - 40 * 2)
 	.header
 		float: left
 		margin: 0 0 48px 38px
@@ -259,6 +265,7 @@ a
 			color: #000
 .widgets
 	@extend .cf
+	background: #141414
 .widget
 	float: left
 	padding: 30px 40px 40px
@@ -344,7 +351,7 @@ a
 // Index
 
 .main
-	padding-bottom: 60px
+	padding-bottom: 80px
 
 .tile-list
 	@extend .cf
@@ -615,7 +622,7 @@ a
 		width: 468px
 		z-index: 1
 .creator
-	background: #333 generated-image-url("pattern.png") center center
+	background: #252525 generated-image-url("pattern.png") center center
 	color: #fff
 	.me
 		float: left
@@ -625,13 +632,13 @@ a
 	.body
 		float: left
 		padding: 60px 40px
-		width: (100% / 12 * 7)
+		width: (100% / 12 * 8)
 		p
 			margin-top: 24px
 	.header
 		color: $cyan
-		font: 34px/48px $display
-		margin-bottom: 24px
+		font: 34px/1 $display
+		margin-bottom: 50px
 		text-transform: none
 	.social a
 		color: #fff
@@ -748,7 +755,12 @@ a
 
 #infinite-footer
 	display: none !important
+#infinite-handle
+	bottom: -55px
+	text-align: center
+	+stretch-x
 .infinite-loader
-	bottom: -35px
+	bottom: -55px
 	position: absolute
 	left: 50%
+	margin-left: -13px
