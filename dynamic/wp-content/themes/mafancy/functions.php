@@ -204,6 +204,7 @@ function remove_menus()
 // Ajax
 
 add_action( 'wp_ajax_my_view_count', 'my_view_count' );
+add_action( 'wp_ajax_nopriv_my_view_count', 'my_view_count' );
 
 function my_view_count()
 {
@@ -240,6 +241,7 @@ function my_view_count()
 }
 
 add_action( 'wp_ajax_my_infinite_scroll', 'my_infinite_scroll' );
+add_action( 'wp_ajax_nopriv_my_infinite_scroll', 'my_infinite_scroll' );
 
 function my_infinite_scroll()
 {

@@ -12,7 +12,7 @@
           ?>
         </div>
         <div class="pagination" id="nav-below">
-          <?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&nbsp;', 'Mais Recentes', 'Carregar mais posts' ); ?>
+          <?php posts_nav_link( '&nbsp;&nbsp;&nbsp;&nbsp;', 'Go Back', 'More Posts' ); ?>
         </div>
       </div>
       <?php endif; ?>
