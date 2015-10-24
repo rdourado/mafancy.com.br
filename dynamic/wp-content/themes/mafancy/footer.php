@@ -13,17 +13,15 @@
       </section>
       <?php endif; ?>
       <?php get_sidebar() ?>
-      <?php
-      $query = new WP_Query(array('posts_per_page' => 4, 'orderby' => 'meta_value_num', 'order' => 'DESC', 'meta_key' => '_views'));
-      if ($query->have_posts()) :
-      ?>
+      <?php if (have_rows('popular', 'option')) : ?>
       <section class="popular">
         <div class="wrap">
           <h3 class="header">Posts mais lidos</h3>
           <div class="tile-list">
             <?php
-            while ($query->have_posts()) {
-              $query->the_post();
+            while (have_rows('popular', 'option')) {
+              the_row();
+              $post = get_sub_field('post');
               get_template_part('loop');
             }
             ?>

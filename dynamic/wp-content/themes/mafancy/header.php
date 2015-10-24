@@ -2,7 +2,7 @@
 <html <?php language_attributes('html') ?>>
   <head>
     <meta charset="<?php bloginfo('charset') ?>">
-    <!-- WP -->
+    <meta name="viewport" content="width=960">
     <?php wp_head() ?>
   </head>
   <body <?php body_class() ?>>

@@ -129,12 +129,12 @@ a
 	cursor: pointer
 	display: inline-block
 	font: 14px/30px $roboto
-	padding: 0 15px 0 5px
+	padding: 0 15px 0 15px
 	text-transform: uppercase
 	+single-transition(all, $speed, $ease)
 	&:before
 		content: "+"
-		margin: 0 15px
+		margin: 0 15px 0 5px
 	&:hover, &:focus, &:active
 		background: #000
 		color: #fff
@@ -538,11 +538,19 @@ a
 	padding-bottom: 30px
 .related,
 .comments
+	@extend .cf
 	.header
 		color: #000
 		padding: 40px 40px 0
 .comments-list
-	padding: 0 40px
+	float: left
+	padding: 0 20px 0 40px
+	width: 610px
+.google-ad.ad-3
+	float: right
+	margin-right: 40px
+	text-align: right
+	width: ($max - 610 - 40)
 
 // About
 
@@ -713,7 +721,7 @@ a
 .ad
 	@extend .cf
 	background: #eaeaea
-	margin-bottom: -60px
+	margin-bottom: -80px
 	padding: 60px 0
 	.header
 		color: #000
@@ -764,3 +772,9 @@ a
 	position: absolute
 	left: 50%
 	margin-left: -13px
+
+// ADs
+
+.google-ad
+	margin-top: 40px
+	text-align: center

@@ -258,6 +258,46 @@ function my_infinite_scroll()
 	die();
 }
 
+// Views Column
+
+add_action( 'manage_posts_custom_column' , 'custom_columns', 10, 2 );
+add_action( 'pre_get_posts', 'manage_wp_posts_be_qe_pre_get_posts', 1 );
+add_filter( 'manage_posts_columns' , 'add_views_column' );
+add_filter( 'manage_edit-post_sortable_columns', 'manage_sortable_columns' );
+
+function custom_columns( $column, $post_id )
+{
+	switch ( $column ) {
+		case 'views':
+			echo get_post_meta( $post_id, '_views', true );
+			break;
+	}
+}
+
+function manage_wp_posts_be_qe_pre_get_posts( $query )
+{
+	if ( $query->is_main_query() && ( $orderby = $query->get( 'orderby' ) ) ) {
+		switch( $orderby ) {
+			case 'views' :
+				$query->set( 'meta_key', '_views' );
+				$query->set( 'orderby', 'meta_value_num' );
+				break;
+		}
+	}
+}
+
+function add_views_column( $columns )
+{
+	return array_merge( $columns, array('views' => __('Views')) );
+}
+
+function manage_sortable_columns( $sortable_columns )
+{
+	$sortable_columns['views'] = 'views';
+	return $sortable_columns;
+}
+
+
 // Register Theme Features
 
 add_action( 'after_setup_theme', 'custom_theme_features' );

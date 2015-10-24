@@ -14,6 +14,12 @@
         <div class="e-content">
           <div class="wrap">
             <?php the_content() ?>
+            <div class="google-ad ad-2">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- Post -->
+              <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5714615502356365" data-ad-slot="7019407735" data-ad-format="auto"></ins>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
           </div>
         </div>
         <footer class="entry-foot">
@@ -59,6 +65,12 @@
             <h3 class="header">Comentários</h3>
             <div class="comments-list">
               <div class="fb-comments" data-colorscheme="light" data-href="<?php the_permalink() ?>" data-numposts="5"></div>
+            </div>
+            <div class="google-ad ad-3">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- Comentários -->
+              <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5714615502356365" data-ad-slot="2449607338" data-ad-format="auto"></ins>
+              <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
           </div>
         </section>
